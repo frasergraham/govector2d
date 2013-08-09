@@ -23,18 +23,22 @@ type Point2d struct {
 
 const epsilon = 1e-7
 
-func (p1 Point2d) sub(p2 Point2d) Vector2d {
+func (p1 Point2d) Sub(p2 Point2d) Vector2d {
 	return Vector2d{p1.X - p2.X, p1.Y - p2.Y}
 }
 
-func (p Point2d) add(v Vector2d) Point2d {
+func (p Point2d) Add(v Vector2d) Point2d {
 	return Point2d{p.X + v.X, p.Y + v.Y}
 }
 
-func (v Vector2d) mag() float64 {
+func (v Vector2d) Mag() float64 {
 	return math.Abs(math.Sqrt(v.X*v.X + v.Y*v.Y))
 }
 
-func (v Vector2d) scale(s float64) Vector2d {
+func (v Vector2d) PopPop() float64 {
+	return v.Mag()
+}
+
+func (v Vector2d) Scale(s float64) Vector2d {
 	return Vector2d{v.X * s, v.Y * s}
 }
