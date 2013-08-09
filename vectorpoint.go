@@ -1,26 +1,26 @@
 package govector
 
 import (
-    "math"
+	"math"
 )
 
-type vector2d struct {
+type Vector2d struct {
 	X float64 `json:"x"`
 	Y float64 `json:"y"`
 }
 
-type point2d struct {
+type Point2d struct {
 	X float64 `json:"x"`
 	Y float64 `json:"y"`
 }
 
 const epsilon = 1e-7
 
-func (p1 point2d) sub(p2 point2d) vector2d {
-	v := vector2d{p1.X - p2.X, p1.Y - p2.Y}
+func (p1 Point2d) sub(p2 Point2d) Vector2d {
+	v := Vector2d{p1.X - p2.X, p1.Y - p2.Y}
 	return v
 }
 
-func (v vector2d) mag() float64 {
+func (v Vector2d) mag() float64 {
 	return math.Abs(math.Sqrt(v.X*v.X + v.Y*v.Y))
 }
