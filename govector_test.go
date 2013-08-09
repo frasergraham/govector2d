@@ -58,4 +58,12 @@ func TestNormalize(t *testing.T) {
 	if vn.Mag() != 1 {
 		t.Errorf("Normalize Error")
 	}
+
+	v0 := Vector2d{0, 0}
+	vn0 := v0.Normalize()
+
+	if vn0.Mag() != 0 {
+		t.Errorf("Normalize Error")
+	}
+
 }

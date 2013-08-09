@@ -44,6 +44,10 @@ func (v Vector2d) Scale(s float64) Vector2d {
 }
 
 func (v Vector2d) Normalize() Vector2d {
+	if v.X == 0 && v.Y == 0 {
+		return v
+	}
+
 	m := v.Mag()
 	return Vector2d{v.X / m, v.Y / m}
 }
