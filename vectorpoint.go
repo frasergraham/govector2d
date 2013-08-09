@@ -43,6 +43,24 @@ func (v Vector2d) Scale(s float64) Vector2d {
 	return Vector2d{v.X * s, v.Y * s}
 }
 
+func (v1 Vector2d) Cross(v2 Vector2d) float64 {
+	return v1.X*v2.Y - v1.Y*v2.X
+}
+
+func (v1 Vector2d) Dot(v2 Vector2d) float64 {
+	return (v1.X * v2.X) + (v1.Y * v2.Y)
+}
+
+func Intersection(p1, p2 Point2d, v1, v2 Vector2d) (bool, Point2d) {
+	t := p2.Sub(p1).Cross(v2) / v1.Cross(v2)
+	s := p2.Sub(p1).Cross(v1) / v1.Cross(v2)
+	if t >= 0 && t <= 1 && s >= 0 && s <= 1 {
+		return true, p1.Add(v1.Scale(t))
+	}
+
+	return false, Point2d{0, 0}
+}
+
 func (v Vector2d) Normalize() Vector2d {
 	if v.X == 0 && v.Y == 0 {
 		return v
