@@ -42,3 +42,8 @@ func (v Vector2d) PopPop() float64 {
 func (v Vector2d) Scale(s float64) Vector2d {
 	return Vector2d{v.X * s, v.Y * s}
 }
+
+func (v Vector2d) Normalize() Vector2d {
+	m := v.Mag()
+	return Vector2d{v.X / m, v.Y / m}
+}
