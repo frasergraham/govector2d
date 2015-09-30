@@ -1,4 +1,6 @@
 govector2d
 ==========
 
-2d Vector Library in Go
+Moved to Bitbucket...
+
+https://bitbucket.org/hackerbots/vector
